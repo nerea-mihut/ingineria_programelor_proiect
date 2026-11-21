@@ -2,16 +2,21 @@
 <html lang="ro">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Creare cont · M.E.S.H.</title>
-    <link rel="stylesheet" href="../../public/css/auth.css" />
-    <script src="../../public/js/auth.js" defer></script>
+
+    <link rel="stylesheet" href="../../public/css/acces_cont.css" />
+
+    <script src="../../public/js/acces_cont.js" defer></script>
   </head>
+
   <body>
     <div class="layout">
       <header class="brand">
-        <span class="logo" aria-hidden="true"
-          ><svg
+        <span class="logo" aria-hidden="true">
+          <svg
             width="26"
             height="26"
             viewBox="0 0 24 24"
@@ -19,42 +24,56 @@
             stroke="currentColor"
             stroke-width="1.8"
           >
-            <rect x="4" y="3" width="16" height="18" rx="2" />
-            <path d="M8 3v7h8V3M12 10v4M8 17h8" /></svg
-        ></span>
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
         <div>
-          <strong>M.E.S.H.</strong><span>Mentenanță, Erori, Stocuri, Hală</span>
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
         </div>
       </header>
-      <main class="card">
-        <h1>Bun venit!</h1>
+
+      <main class="card" aria-labelledby="register-title">
+        <h1 id="register-title">Bun venit!</h1>
+
         <p class="subtitle">Creare cont</p>
+
         <form data-kind="register" method="post">
           <div class="field">
-            <label for="name">Nume complet</label
-            ><input
+            <label for="name">Nume complet</label>
+
+            <input
               id="name"
               name="name"
               type="text"
               placeholder="Introdu numele complet"
               autocomplete="name"
+              maxlength="150"
               required
             />
           </div>
+
           <div class="field">
-            <label for="email">Adresă de e-mail</label
-            ><input
+            <label for="email">Adresă de e-mail</label>
+
+            <input
               id="email"
               name="email"
               type="email"
               placeholder="nume@exemplu.ro"
               autocomplete="email"
+              maxlength="254"
               required
             />
           </div>
+
           <div class="field">
-            <label for="password">Parolă</label
-            ><input
+            <label for="password">Parolă</label>
+
+            <input
               id="password"
               name="password"
               type="password"
@@ -63,9 +82,11 @@
               required
             />
           </div>
+
           <div class="field">
-            <label for="confirm">Confirmă parola</label
-            ><input
+            <label for="confirm">Confirmă parola</label>
+
+            <input
               id="confirm"
               name="confirm"
               type="password"
@@ -74,23 +95,38 @@
               required
             />
           </div>
-          <label class="check"
-            ><input type="checkbox" data-passwords="password,confirm" />Arată
-            parolele</label
-          ><button class="primary" type="submit" disabled>
-            Creează cont<span aria-hidden="true">→</span>
+
+          <label class="check" for="show-passwords">
+            <input
+              id="show-passwords"
+              type="checkbox"
+              data-passwords="password,confirm"
+              aria-controls="password confirm"
+            />
+
+            Arată parolele
+          </label>
+
+          <button class="primary" type="submit" disabled>
+            Creează cont
+            <span aria-hidden="true">→</span>
           </button>
         </form>
+
         <p class="feedback" role="status" aria-live="polite" hidden></p>
+
         <div class="bottom">
-          Ai deja cont? <a href="login.html">Autentifică-te</a>
+          Ai deja cont?
+
+          <a href="login.html"> Autentifică-te </a>
         </div>
-        <noscript
-          ><p class="feedback">
-            Activează JavaScript pentru previzualizare. Formularele nu sunt
-            conectate la server.
-          </p></noscript
-        >
+
+        <noscript>
+          <p class="feedback">
+            Activează JavaScript pentru previzualizare. Formularul nu este
+            conectat la server.
+          </p>
+        </noscript>
       </main>
     </div>
   </body>
