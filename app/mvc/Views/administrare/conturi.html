@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Administrare conturi · M.E.S.H.</title>
+
+    <link rel="stylesheet" href="css/panou.css" />
+    <link rel="stylesheet" href="css/administrare_conturi.css" />
+    <script src="js/comun.js" defer></script>
+    <script src="js/administrare_conturi.js" defer></script>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.php?ruta=panou">
+        <span class="logo" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
+        <span class="brand-text">
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <p class="who" id="who" hidden></p>
+
+        <button class="logout" id="logout" type="button">Deconectare</button>
+      </div>
+    </header>
+
+    <main class="content wide">
+      <div class="page-head">
+        <div>
+          <h1>Administrare conturi</h1>
+
+          <p class="subtitle">
+            Aprobi cereri de cont, stabilești roluri și departamente și ajuți la
+            resetarea parolelor.
+          </p>
+        </div>
+
+        <a class="button" href="index.php?ruta=panou">
+          Înapoi la pagina principală
+        </a>
+      </div>
+
+      <section class="card" aria-labelledby="requests-title">
+        <h2 id="requests-title">
+          Cereri de cont
+          <span class="badge" id="requests-count" hidden></span>
+        </h2>
+
+        <p class="section-note">
+          Alege rolul și departamentul, apoi aprobă. Contul poate fi folosit
+          imediat după aprobare.
+        </p>
+
+        <ul class="list" id="requests"></ul>
+
+        <p class="empty" id="no-requests" hidden>
+          Nu există cereri de cont în așteptare.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="resets-title">
+        <h2 id="resets-title">
+          Cereri de resetare a parolei
+          <span class="badge" id="resets-count" hidden></span>
+        </h2>
+
+        <p class="section-note">
+          Generezi un link și îl transmiți persoanei. Ea își alege singură noua
+          parolă.
+        </p>
+
+        <div class="link-box" id="link-box" hidden>
+          <p class="link-title" id="link-title"></p>
+
+          <div class="link-line">
+            <input id="link-value" type="text" readonly aria-labelledby="link-title" />
+
+            <button class="button primary" id="link-copy" type="button">
+              Copiază
+            </button>
+          </div>
+
+          <p class="link-note" id="link-note"></p>
+        </div>
+
+        <ul class="list" id="resets"></ul>
+
+        <p class="empty" id="no-resets" hidden>
+          Nu există cereri de resetare în așteptare.
+        </p>
+      </section>
+
+      <section class="card" aria-labelledby="accounts-title">
+        <h2 id="accounts-title">
+          Conturi
+          <span class="badge" id="accounts-count" hidden></span>
+        </h2>
+
+        <p class="section-note">
+          Schimbarea rolului și dezactivarea au efect imediat, chiar dacă
+          persoana este autentificată.
+        </p>
+
+        <ul class="list" id="accounts"></ul>
+      </section>
+
+      <p class="toast" id="toast" role="status" aria-live="polite" hidden></p>
+
+      <noscript>
+        <p class="feedback">
+          Activează JavaScript pentru a administra conturile.
+        </p>
+      </noscript>
+    </main>
+  </body>
+</html>

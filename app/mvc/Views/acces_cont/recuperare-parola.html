@@ -7,8 +7,8 @@
 
     <title>Recuperare acces · M.E.S.H.</title>
 
-    <link rel="stylesheet" href="../../../public/css/acces_cont.css" />
-    <script src="../../../public/js/acces_cont.js" defer></script>
+    <link rel="stylesheet" href="css/acces_cont.css" />
+    <script src="js/acces_cont.js" defer></script>
   </head>
 
   <body>
@@ -38,9 +38,16 @@
       <main class="card" aria-labelledby="recovery-title">
         <h1 id="recovery-title">Ai uitat parola?</h1>
 
-        <p class="subtitle">Recuperare acces</p>
+        <p class="subtitle">
+          Recuperare acces. Administratorul îți va da un link pentru o parolă
+          nouă.
+        </p>
 
-        <form data-kind="recover" method="post">
+        <form
+          data-kind="recover"
+          method="post"
+          action="index.php?ruta=recuperare-parola"
+        >
           <div class="field">
             <label for="email">Adresă de e-mail</label>
 
@@ -64,13 +71,12 @@
         <p class="feedback" role="status" aria-live="polite" hidden></p>
 
         <div class="bottom">
-          <a href="login.html"> Înapoi la autentificare </a>
+          <a href="index.php?ruta=login"> Înapoi la autentificare </a>
         </div>
 
         <noscript>
           <p class="feedback">
-            Activează JavaScript pentru previzualizare. Formularul nu este
-            conectat la server.
+            Activează JavaScript pentru a putea solicita resetarea parolei.
           </p>
         </noscript>
       </main>

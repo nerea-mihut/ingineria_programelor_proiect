@@ -123,6 +123,12 @@ form {
   border-color: var(--orange);
   box-shadow: 0 0 0 3px #ff951f22;
 }
+.hint {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
 .options {
   display: flex;
   justify-content: space-between;
@@ -201,6 +207,14 @@ input[type="checkbox"]:focus-visible {
   font-size: 12px;
   line-height: 1.6;
 }
+.feedback.success {
+  border-color: #5b5c63;
+  color: var(--text);
+}
+.primary:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
 [hidden] {
   display: none !important;
 }
@@ -220,7 +234,10 @@ input[type="checkbox"]:focus-visible {
     margin-bottom: 19px;
   }
   form {
-    gap: 14px;
+    gap: 13px;
+  }
+  .field {
+    gap: 6px;
   }
   .field input {
     height: 45px;
@@ -231,6 +248,95 @@ input[type="checkbox"]:focus-visible {
   .bottom {
     margin-top: 18px;
     padding-top: 16px;
+  }
+  /* Paginile cu multe câmpuri (creare cont) au nevoie de mai puțin spațiu. */
+  .compact {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .compact .layout {
+    gap: 11px;
+  }
+  .compact .card {
+    padding-top: 19px;
+    padding-bottom: 15px;
+  }
+  .compact h1 {
+    margin-bottom: 4px;
+    font-size: 26px;
+  }
+  .compact .subtitle {
+    margin-bottom: 13px;
+  }
+  .compact form {
+    gap: 10px;
+  }
+  .compact .field {
+    gap: 5px;
+  }
+  .compact .field input,
+  .compact .primary {
+    height: 41px;
+    min-height: 41px;
+  }
+  .compact .bottom {
+    margin-top: 13px;
+    padding-top: 12px;
+  }
+  .compact .feedback {
+    margin-top: 11px;
+    padding: 8px 11px;
+  }
+}
+@media (max-height: 670px) {
+  .compact {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .compact .layout {
+    gap: 9px;
+  }
+  .compact .logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+  .compact .brand strong {
+    font-size: 20px;
+  }
+  .compact .brand span:not(.logo) {
+    margin-top: 2px;
+  }
+  .compact .card {
+    padding-top: 16px;
+    padding-bottom: 13px;
+  }
+  .compact h1 {
+    margin-bottom: 3px;
+    font-size: 24px;
+  }
+  .compact .subtitle {
+    margin-bottom: 11px;
+    font-size: 13px;
+  }
+  .compact form {
+    gap: 8px;
+  }
+  .compact .field {
+    gap: 4px;
+  }
+  .compact .field input,
+  .compact .primary {
+    height: 37px;
+    min-height: 37px;
+  }
+  .compact .bottom {
+    margin-top: 10px;
+    padding-top: 9px;
+  }
+  .compact .feedback {
+    margin-top: 9px;
+    padding: 7px 11px;
   }
 }
 @media (max-width: 440px) {

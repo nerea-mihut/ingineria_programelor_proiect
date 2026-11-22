@@ -7,8 +7,8 @@
 
     <title>Autentificare · M.E.S.H.</title>
 
-    <link rel="stylesheet" href="../../../public/css/acces_cont.css" />
-    <script src="../../../public/js/acces_cont.js" defer></script>
+    <link rel="stylesheet" href="css/acces_cont.css" />
+    <script src="js/acces_cont.js" defer></script>
   </head>
 
   <body>
@@ -40,7 +40,11 @@
 
         <p class="subtitle">Autentificare</p>
 
-        <form data-kind="login" method="post">
+        <form
+          data-kind="login"
+          method="post"
+          action="index.php?ruta=autentificare"
+        >
           <div class="field">
             <label for="email">Adresă de e-mail</label>
 
@@ -80,7 +84,7 @@
               Arată parola
             </label>
 
-            <a href="recuperare-parola.html"> Am uitat parola </a>
+            <a href="index.php?ruta=recuperare-parola"> Am uitat parola </a>
           </div>
 
           <button class="primary" type="submit" disabled>
@@ -94,13 +98,12 @@
         <div class="bottom">
           Nu ai cont?
 
-          <a href="creare-cont.html"> Creează cont </a>
+          <a href="index.php?ruta=creare-cont"> Creează cont </a>
         </div>
 
         <noscript>
           <p class="feedback">
-            Activează JavaScript pentru previzualizare. Formularul nu este
-            conectat la server.
+            Activează JavaScript pentru a te putea autentifica.
           </p>
         </noscript>
       </main>

@@ -7,12 +7,11 @@
 
     <title>Creare cont · M.E.S.H.</title>
 
-    <link rel="stylesheet" href="../../../public/css/acces_cont.css" />
-
-    <script src="../../../public/js/acces_cont.js" defer></script>
+    <link rel="stylesheet" href="css/acces_cont.css" />
+    <script src="js/acces_cont.js" defer></script>
   </head>
 
-  <body>
+  <body class="compact">
     <div class="layout">
       <header class="brand">
         <span class="logo" aria-hidden="true">
@@ -41,7 +40,11 @@
 
         <p class="subtitle">Creare cont</p>
 
-        <form data-kind="register" method="post">
+        <form
+          data-kind="register"
+          method="post"
+          action="index.php?ruta=creare-cont"
+        >
           <div class="field">
             <label for="name">Nume complet</label>
 
@@ -51,7 +54,8 @@
               type="text"
               placeholder="Introdu numele complet"
               autocomplete="name"
-              maxlength="150"
+              minlength="2"
+              maxlength="120"
               required
             />
           </div>
@@ -79,8 +83,15 @@
               type="password"
               placeholder="Alege o parolă"
               autocomplete="new-password"
+              minlength="8"
+              maxlength="72"
+              aria-describedby="password-hint"
               required
             />
+
+            <p class="hint" id="password-hint">
+              Cel puțin 8 caractere, cu o literă și o cifră.
+            </p>
           </div>
 
           <div class="field">
@@ -92,6 +103,7 @@
               type="password"
               placeholder="Reintrodu parola"
               autocomplete="new-password"
+              maxlength="72"
               required
             />
           </div>
@@ -108,7 +120,7 @@
           </label>
 
           <button class="primary" type="submit" disabled>
-            Creează cont
+            Trimite cererea
             <span aria-hidden="true">→</span>
           </button>
         </form>
@@ -118,13 +130,12 @@
         <div class="bottom">
           Ai deja cont?
 
-          <a href="login.html"> Autentifică-te </a>
+          <a href="index.php?ruta=login"> Autentifică-te </a>
         </div>
 
         <noscript>
           <p class="feedback">
-            Activează JavaScript pentru previzualizare. Formularul nu este
-            conectat la server.
+            Activează JavaScript pentru a putea trimite cererea de cont.
           </p>
         </noscript>
       </main>
