@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Parolă nouă · M.E.S.H.</title>
+
+    <link rel="stylesheet" href="{{ asset('css/acces_cont.css') }}" />
+    <script src="{{ asset('js/acces_cont.js') }}" defer></script>
+  </head>
+
+  <body class="compact">
+    <div class="layout">
+      <header class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
+        <div>
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
+        </div>
+      </header>
+
+      <main class="card" aria-labelledby="new-password-title">
+        <h1 id="new-password-title">Parolă nouă</h1>
+
+        <p class="subtitle">Alege parola cu care vei intra în aplicație.</p>
+
+        <form
+          data-kind="new-password"
+          method="post"
+          action="{{ url('parola-noua') }}"
+        >
+          @csrf
+          <input name="cod" type="hidden" />
+
+          <div class="field">
+            <label for="password">Parolă nouă</label>
+
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Alege o parolă"
+              autocomplete="new-password"
+              minlength="8"
+              maxlength="72"
+              aria-describedby="password-hint"
+              required
+            />
+
+            <p class="hint" id="password-hint">
+              Cel puțin 8 caractere, cu o literă și o cifră.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="confirm">Confirmă parola</label>
+
+            <input
+              id="confirm"
+              name="confirm"
+              type="password"
+              placeholder="Reintrodu parola"
+              autocomplete="new-password"
+              maxlength="72"
+              required
+            />
+          </div>
+
+          <label class="check" for="show-passwords">
+            <input
+              id="show-passwords"
+              type="checkbox"
+              data-passwords="password,confirm"
+              aria-controls="password confirm"
+            />
+
+            Arată parolele
+          </label>
+
+          <button class="primary" type="submit" disabled>
+            Salvează parola
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p class="feedback" role="status" aria-live="polite" hidden></p>
+
+        <div class="bottom">
+          <a href="{{ route('login') }}"> Înapoi la autentificare </a>
+        </div>
+
+        <noscript>
+          <p class="feedback">
+            Activează JavaScript pentru a putea salva parola nouă.
+          </p>
+        </noscript>
+      </main>
+    </div>
+  </body>
+</html>

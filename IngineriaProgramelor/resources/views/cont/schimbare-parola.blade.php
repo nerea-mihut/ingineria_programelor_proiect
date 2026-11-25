@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Schimbare parolă · M.E.S.H.</title>
+
+    <link rel="stylesheet" href="{{ asset('css/panou.css') }}" />
+    <script src="{{ asset('js/comun.js') }}" defer></script>
+    <script src="{{ asset('js/schimbare_parola.js') }}" defer></script>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="{{ route('panou') }}">
+        <span class="logo" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
+        <span class="brand-text">
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <p class="who" id="who" hidden></p>
+
+        <button class="logout" id="logout" type="button">Deconectare</button>
+      </div>
+    </header>
+
+    <main class="content narrow">
+      <section class="card" aria-labelledby="change-title">
+        <h1 id="change-title">Schimbare parolă</h1>
+
+        <p class="subtitle">
+          După schimbare rămâi autentificat aici. Celelalte dispozitive vor cere
+          noua parolă.
+        </p>
+
+        <form class="form" method="post" action="{{ url('schimbare-parola') }}">
+          @csrf
+          <div class="field">
+            <label for="current">Parola actuală</label>
+
+            <input
+              id="current"
+              name="current"
+              type="password"
+              placeholder="Introdu parola actuală"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="password">Parolă nouă</label>
+
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Alege o parolă"
+              autocomplete="new-password"
+              minlength="8"
+              maxlength="72"
+              aria-describedby="password-hint"
+              required
+            />
+
+            <p class="hint" id="password-hint">
+              Cel puțin 8 caractere, cu o literă și o cifră.
+            </p>
+          </div>
+
+          <div class="field">
+            <label for="confirm">Confirmă parola nouă</label>
+
+            <input
+              id="confirm"
+              name="confirm"
+              type="password"
+              placeholder="Reintrodu parola nouă"
+              autocomplete="new-password"
+              maxlength="72"
+              required
+            />
+          </div>
+
+          <label class="check" for="show-passwords">
+            <input id="show-passwords" type="checkbox" />
+
+            Arată parolele
+          </label>
+
+          <div class="actions">
+            <button class="button primary" id="save" type="submit" disabled>
+              Schimbă parola
+            </button>
+
+            <a class="button" href="{{ route('panou') }}">
+              Înapoi la pagina principală
+            </a>
+          </div>
+        </form>
+
+        <p class="feedback" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <noscript>
+        <p class="feedback">
+          Activează JavaScript pentru a putea schimba parola.
+        </p>
+      </noscript>
+    </main>
+  </body>
+</html>

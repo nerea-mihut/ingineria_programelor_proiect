@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Autentificare · M.E.S.H.</title>
+
+    <link rel="stylesheet" href="{{ asset('css/acces_cont.css') }}" />
+    <script src="{{ asset('js/acces_cont.js') }}" defer></script>
+  </head>
+
+  <body>
+    <div class="layout">
+      <header class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
+        <div>
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
+        </div>
+      </header>
+
+      <main class="card" aria-labelledby="login-title">
+        <h1 id="login-title">Bine ai revenit!</h1>
+
+        <p class="subtitle">Autentificare</p>
+
+        <form
+          data-kind="login"
+          method="post"
+          action="{{ url('autentificare') }}"
+        >
+          @csrf
+          <div class="field">
+            <label for="email">Adresă de e-mail</label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="nume@exemplu.ro"
+              autocomplete="username"
+              maxlength="254"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="password">Parolă</label>
+
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Introdu parola"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <div class="options">
+            <label class="check" for="show-password">
+              <input
+                id="show-password"
+                type="checkbox"
+                data-passwords="password"
+                aria-controls="password"
+              />
+
+              Arată parola
+            </label>
+
+            <a href="{{ route('recuperare-parola') }}"> Am uitat parola </a>
+          </div>
+
+          <button class="primary" type="submit" disabled>
+            Autentificare
+            <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p class="feedback" role="status" aria-live="polite" hidden></p>
+
+        <div class="bottom">
+          Nu ai cont?
+
+          <a href="{{ route('creare-cont') }}"> Creează cont </a>
+        </div>
+
+        <noscript>
+          <p class="feedback">
+            Activează JavaScript pentru a te putea autentifica.
+          </p>
+        </noscript>
+      </main>
+    </div>
+  </body>
+</html>
