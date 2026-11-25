@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pagina principală · M.E.S.H.</title>
+
+    <link rel="stylesheet" href="css/panou.css" />
+    <script src="js/comun.js" defer></script>
+    <script src="js/panou.js" defer></script>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <a class="brand" href="index.php?ruta=panou">
+        <span class="logo" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+
+            <path d="M8 3v7h8V3M12 10v4M8 17h8"></path>
+          </svg>
+        </span>
+
+        <span class="brand-text">
+          <strong>M.E.S.H.</strong>
+          <span>Mentenanță, Erori, Stocuri, Hală</span>
+        </span>
+      </a>
+
+      <div class="topbar-actions">
+        <p class="who" id="who" hidden></p>
+
+        <button class="logout" id="logout" type="button">Deconectare</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="card" aria-labelledby="welcome-title">
+        <h1 id="welcome-title">Bun venit!</h1>
+
+        <p class="subtitle">Ești autentificat în aplicație.</p>
+
+        <dl class="details">
+          <div>
+            <dt>Nume</dt>
+            <dd id="user-name">—</dd>
+          </div>
+
+          <div>
+            <dt>Adresă de e-mail</dt>
+            <dd id="user-email">—</dd>
+          </div>
+
+          <div>
+            <dt>Rol</dt>
+            <dd id="user-role">—</dd>
+          </div>
+
+          <div>
+            <dt>Departament</dt>
+            <dd id="user-department">—</dd>
+          </div>
+        </dl>
+
+        <div class="actions">
+          <a class="button" href="index.php?ruta=schimbare-parola">
+            Schimbă parola
+          </a>
+        </div>
+
+        <p class="feedback" role="status" aria-live="polite" hidden></p>
+      </section>
+
+      <section class="card" aria-labelledby="modules-title">
+        <h2 id="modules-title">Modulele tale</h2>
+
+        <p class="section-note">
+          Ce poți face în aplicație, potrivit rolului și departamentului tău.
+        </p>
+
+        <ul class="modules" id="modules"></ul>
+
+        <p class="empty" id="no-modules" hidden>
+          Rolul tău nu are încă module în aplicație.
+        </p>
+      </section>
+
+      <noscript>
+        <p class="feedback">
+          Activează JavaScript pentru a vedea datele contului și pentru
+          deconectare.
+        </p>
+      </noscript>
+    </main>
+  </body>
+</html>

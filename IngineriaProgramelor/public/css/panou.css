@@ -1,0 +1,394 @@
+/* Stilurile paginilor de după autentificare:
+   bara de sus, carduri, butoane, formulare și lista de module. */
+:root {
+  color-scheme: dark;
+  --bg: #111214;
+  --card: #1d1e21;
+  --input: #25262a;
+  --line: #45464d;
+  --text: #f6f6f8;
+  --muted: #b4b4bd;
+  --orange: #ff951f;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse at top, #ff951f0b, transparent 60%), var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* Bara de sus */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  border-bottom: 1px solid #36373c;
+  background: var(--card);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+.logo {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: var(--orange);
+  color: #17110a;
+}
+.brand-text strong {
+  display: block;
+  font-size: 19px;
+  letter-spacing: 2px;
+}
+.brand-text span {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+.who {
+  margin: 0;
+  min-width: 0;
+  text-align: right;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.who strong {
+  display: block;
+  font-size: 13px;
+  color: var(--text);
+}
+
+/* Butoane */
+.logout,
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    border-color 0.18s,
+    color 0.18s,
+    background 0.18s;
+}
+.logout:hover,
+.button:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.button.primary {
+  border-color: var(--orange);
+  background: var(--orange);
+  color: #17110a;
+}
+.button.primary:hover {
+  background: #ffa63f;
+  color: #17110a;
+}
+.logout:disabled,
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+  pointer-events: none;
+}
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Conținut și carduri */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+.content.narrow {
+  max-width: 520px;
+}
+.content.wide {
+  max-width: 1120px;
+}
+.card {
+  position: relative;
+  border: 1px solid #36373c;
+  border-radius: 24px;
+  padding: 26px 34px;
+  background: var(--card);
+  box-shadow: 0 22px 65px #0005;
+  overflow: hidden;
+}
+.card:before {
+  position: absolute;
+  content: "";
+  height: 2px;
+  top: 0;
+  left: 34px;
+  right: 34px;
+  background: linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+h1 {
+  margin: 0 0 7px;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 20px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+.subtitle {
+  margin: 0 0 25px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+.section-note {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+.empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+.badge {
+  flex-shrink: 0;
+  padding: 3px 9px;
+  border: 1px solid #5b5c63;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+.badge.accent {
+  border-color: #ff951f88;
+  color: var(--orange);
+}
+
+/* Datele contului */
+.details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+.details div {
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--input);
+}
+.details dt {
+  margin-bottom: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.details dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+/* Modulele rolului */
+.modules {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.module {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  height: 100%;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--input);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.18s;
+}
+a.module:hover {
+  border-color: var(--orange);
+}
+.module-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+.module-text {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Formulare */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.field label {
+  font-size: 13px;
+  font-weight: 550;
+}
+.field input {
+  width: 100%;
+  height: 47px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: var(--input);
+  color: var(--text);
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.field input::placeholder {
+  color: #a2a2ac;
+}
+.field input:focus-visible {
+  outline: none;
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px #ff951f22;
+}
+.hint {
+  margin: -2px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #c6c6cd;
+  font-size: 12px;
+  cursor: pointer;
+}
+.check input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--orange);
+}
+.form .actions {
+  margin-top: 4px;
+}
+
+/* Mesaje */
+.feedback {
+  margin: 16px 0 0;
+  padding: 11px;
+  border: 1px solid #ff951f66;
+  border-radius: 9px;
+  color: #ffd4a3;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.feedback.success {
+  border-color: #5b5c63;
+  color: var(--text);
+}
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding: 12px 16px;
+  }
+  .brand-text span,
+  .who {
+    display: none;
+  }
+  .card {
+    padding: 24px 22px;
+  }
+  .card:before {
+    left: 22px;
+    right: 22px;
+  }
+  .details,
+  .modules {
+    grid-template-columns: 1fr;
+  }
+  h1 {
+    font-size: 26px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
