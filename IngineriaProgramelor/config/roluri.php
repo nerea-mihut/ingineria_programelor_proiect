@@ -1,5 +1,6 @@
 <?php
 
+
 // Rolurile aplicatiei si ce vede fiecare dupa autentificare (RF-002 din SRS).
 //
 // 'eticheta'     = numele afisat in interfata
@@ -21,6 +22,7 @@ $moduleOperator = [
     ],
 ];
 
+
 $moduleMecanic = [
     [
         'titlu' => 'Hartă și sesizări',
@@ -38,6 +40,7 @@ $moduleMecanic = [
         'ruta' => null,
     ],
 ];
+
 
 $moduleAdministratorMentenanta = [
     [
@@ -66,6 +69,7 @@ $moduleAdministratorMentenanta = [
     ],
 ];
 
+
 $moduleAdministratorGeneral = [
     [
         'titlu' => 'Administrare conturi',
@@ -74,8 +78,10 @@ $moduleAdministratorGeneral = [
     ],
 ];
 
+
 return [
     'departamente' => ['Mentenanță', 'Producție'],
+
 
     'roluri' => [
         'operator_cnc' => [
@@ -107,6 +113,13 @@ return [
                 $moduleMecanic,
                 $moduleOperator
             ),
+        ],
+        // Contul de pe monitorul din hala: vede doar harta.
+        'monitor' => [
+            'eticheta' => 'Monitor hală',
+            'departamente' => [],
+            'pagina_start' => 'harta',
+            'module' => [],
         ],
     ],
 ];
