@@ -1,4 +1,12 @@
+<<<<<<< Updated upstream
 -- M.E.S.H. - import echipamente si rol monitor
+=======
+<<<<<<< HEAD
+-- M.E.S.H. - import echipamente si rol Monitor
+=======
+-- M.E.S.H. - import echipamente si rol monitor
+>>>>>>> 0e7a942e7b68e3ca798e23542799e0ec4b282b92
+>>>>>>> Stashed changes
 -- Se poate rula de mai multe ori (nu dubleaza datele).
 SET NAMES utf8mb4;
 USE gestiune_cnc;
@@ -43,8 +51,18 @@ ON DUPLICATE KEY UPDATE
   pozitie_x = nou.pozitie_x,
   pozitie_y = nou.pozitie_y;
 
+<<<<<<< Updated upstream
 -- 4. Rolul monitor (cu litere mici, ca in config/roluri.php)
 INSERT IGNORE INTO rol (denumire) VALUES ('monitor');
+=======
+<<<<<<< HEAD
+-- 4. Rolul Monitor
+INSERT IGNORE INTO rol (denumire) VALUES ('Monitor');
+=======
+-- 4. Rolul monitor (cu litere mici, ca in config/roluri.php)
+INSERT IGNORE INTO rol (denumire) VALUES ('monitor');
+>>>>>>> 0e7a942e7b68e3ca798e23542799e0ec4b282b92
+>>>>>>> Stashed changes
 
 COMMIT;
 
